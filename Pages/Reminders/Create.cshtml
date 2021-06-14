@@ -1,0 +1,59 @@
+﻿@page
+@model ReminderHandler.Pages.Reminders.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Reminder</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Reminder.Title" class="control-label"></label>
+                <input asp-for="Reminder.Title" class="form-control" />
+                <span asp-validation-for="Reminder.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reminder.Description" class="control-label"></label>
+                <input asp-for="Reminder.Description" class="form-control" />
+                <span asp-validation-for="Reminder.Description" class="text-danger"></span>
+            </div>
+
+            @*@(Html.Raw(course.Assigned ? "checked=\"checked\"" : "")) />
+        @course.CourseID @:  @course.Title
+        @:
+                value="Reminder.ID"
+                name="selectedFavorite"*@
+
+            <div class="form-group">
+                <label asp-for="Reminder.Content" class="control-label"></label>
+                <input asp-for="Reminder.Content" class="form-control" />
+                <span asp-validation-for="Reminder.Content" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Reminder.Favorite" class="control-label"></label>
+                <input asp-for="Reminder.Favorite" type="checkbox" class="" />
+                <span asp-validation-for="Reminder.Favorite" class="text-danger"></span>
+            </div>
+            <!-- Insert the call to your note helper here. -->
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
