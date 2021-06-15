@@ -38,6 +38,7 @@ namespace ReminderHandler.Pages.Reminders
             _context.Reminder.Add(Reminder);
             //_context.Reminder.Update(Reminder.CreationDate);
             Reminder.CreationDate = DateTime.Now;
+            Reminder.UpdatedDate = DateTime.Now;
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

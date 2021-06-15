@@ -41,8 +41,10 @@ namespace ReminderHandler.Pages.Reminders
             //FavoriteSort = String.IsNullOrEmpty(SortOrder) ? "" : "name_desc";
 
             Reminder = await reminders
-            //Where(s => s.Favorite)
-                .OrderBy(i => i.Title)
+            
+                .OrderByDescending(i => i.Favorite)
+                .ThenBy(i => i.Title)
+            
                 .ToListAsync();
 
         }
